@@ -11,7 +11,9 @@ const meta = {
   server: 'hono',
   platform: 'deno'
 }
-
+app.get('/ping', (req, res) => {
+  res.status(200).send('Ping successful');
+})
 app.get('/', async (c) => {
   const url = c.req.query('url')
   if (!url) {
@@ -22,15 +24,13 @@ app.get('/', async (c) => {
     return c.json({
       error: 0,
       message: 'article has been extracted successfully',
-      data,
-      meta
+      data
     })
   } catch (err) {
     return c.json({
       error: 1,
       message: err.message,
-      data: null,
-      meta
+      data: null
     })
   }
 })
