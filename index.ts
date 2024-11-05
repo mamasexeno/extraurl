@@ -11,8 +11,8 @@ const meta = {
   server: 'hono',
   platform: 'deno'
 }
-app.get('/ping', (req, res) => {
-  res.status(200).send('Ping successful');
+app.get('/ping', (c) => {
+  return c.text('Ping successful', 200)
 })
 app.get('/', async (c) => {
   const url = c.req.query('url')
