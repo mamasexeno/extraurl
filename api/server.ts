@@ -1,7 +1,8 @@
-import { Hono } from 'hono';
+// Impor menggunakan URL lengkap agar Vercel bisa menemukannya
+import { Hono } from 'https://deno.land/x/hono/mod.ts';
 import { extract } from 'npm:@extractus/article-extractor';
 
-// --- Logika Aplikasi (Sama seperti di index.ts) ---
+// --- Logika Aplikasi (Tidak ada yang berubah di sini) ---
 const app = new Hono();
 
 const meta = {
