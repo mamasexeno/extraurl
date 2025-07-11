@@ -1,13 +1,8 @@
 {
-  "functions": {
-    "server.ts": {
-      "runtime": "@vercel/deno"
-    }
-  },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/server.ts"
+      "dest": "/api/server.ts"
     }
   ]
 }
