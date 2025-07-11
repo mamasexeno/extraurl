@@ -1,15 +1,14 @@
 // api/index.ts
 import { Hono } from 'hono';
-import { extract } from '@extractus/article-extractor';
 
-// --- Logika Aplikasi (Sama persis dengan sebelumnya) ---
+// --- Logika Aplikasi ---
 const app = new Hono();
 
 const meta = {
   service: 'article-parser',
   lang: 'typescript',
   server: 'hono',
-  platform: 'vercel-nodejs' // Kita ubah platform untuk menandakan ini versi Node.js
+  platform: 'vercel-nodejs'
 };
 
 app.get('/ping', (c) => {
@@ -22,7 +21,10 @@ app.get('/', async (c) => {
     return c.json(meta);
   }
   try {
+    // Perubahan ada di sini! Menggunakan dynamic import()
+    const { extract } = await import('@extractus/article-extractor');
     const data = await extract(url);
+    
     return c.json({
       error: 0,
       message: 'article has been extracted successfully',
