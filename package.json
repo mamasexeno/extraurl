@@ -1,0 +1,14 @@
+{
+  "name": "hono-article-parser-nodejs",
+  "version": "1.0.0",
+  "description": "Article extractor API built with Hono on Node.js for Vercel",
+  "main": "api/index.ts",
+  "dependencies": {
+    "@extractus/article-extractor": "^8.0.10",
+    "hono": "^4.4.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "typescript": "^5.5.2"
+  }
+}
