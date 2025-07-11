@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "api/server.ts": {
+      "runtime": "deno",
+      "memory": 128
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/server"
+    }
+  ]
+}
