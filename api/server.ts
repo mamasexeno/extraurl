@@ -1,3 +1,4 @@
+// api/server.ts
 import { Hono } from 'https://deno.land/x/hono/mod.ts';
 import { extract } from 'npm:@extractus/article-extractor';
 
