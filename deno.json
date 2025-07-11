@@ -4,7 +4,7 @@
   "imports": {
     "serve": "https://deno.land/std/http/server.ts",
     "hono": "https://deno.land/x/hono/mod.ts",
-    "article-extractor": "https://esm.sh/@extractus/article-extractor"
+    "article-extractor": "https://esm.sh/@extractus/article-extractor?target=deno"
   },
   "tasks": {
     "dev": "deno run --allow-net --allow-env --allow-read index.ts",
