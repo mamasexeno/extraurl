@@ -1,18 +1,15 @@
-// api/server.ts
-import { Hono } from 'https://deno.land/x/hono/mod.ts';
-import { extract } from 'npm:@extractus/article-extractor';
+// api/index.ts
+import { Hono } from 'hono';
+import { extract } from '@extractus/article-extractor';
 
-// Langkah Diagnostik: Cetak versi Deno untuk memastikan runtime yang benar digunakan
-console.log(`Running on Deno version: ${Deno.version.deno}`);
-
-// --- Logika Aplikasi (Tidak ada yang berubah di sini) ---
+// --- Logika Aplikasi (Sama persis dengan sebelumnya) ---
 const app = new Hono();
 
 const meta = {
   service: 'article-parser',
   lang: 'typescript',
   server: 'hono',
-  platform: 'vercel'
+  platform: 'vercel-nodejs' // Kita ubah platform untuk menandakan ini versi Node.js
 };
 
 app.get('/ping', (c) => {
@@ -42,5 +39,5 @@ app.get('/', async (c) => {
 });
 // --- Akhir Logika Aplikasi ---
 
-// Ekspor handler untuk Vercel
+// Ekspor handler untuk Vercel (tetap sama)
 export default app.fetch;
