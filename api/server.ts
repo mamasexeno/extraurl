@@ -1,6 +1,8 @@
-// Impor menggunakan URL lengkap agar Vercel bisa menemukannya
 import { Hono } from 'https://deno.land/x/hono/mod.ts';
 import { extract } from 'npm:@extractus/article-extractor';
+
+// Langkah Diagnostik: Cetak versi Deno untuk memastikan runtime yang benar digunakan
+console.log(`Running on Deno version: ${Deno.version.deno}`);
 
 // --- Logika Aplikasi (Tidak ada yang berubah di sini) ---
 const app = new Hono();
