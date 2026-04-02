@@ -1,6 +1,4 @@
-import { serve } from 'serve'
 import { Hono } from 'hono'
-
 import { extract } from 'article-extractor'
 
 const app = new Hono()
@@ -11,9 +9,11 @@ const meta = {
   server: 'hono',
   platform: 'deno'
 }
+
 app.get('/ping', (c) => {
   return c.text('Ping successful', 200)
 })
+
 app.get('/', async (c) => {
   const url = c.req.query('url')
   if (!url) {
@@ -26,7 +26,7 @@ app.get('/', async (c) => {
       message: 'article has been extracted successfully',
       data
     })
-  } catch (err) {
+  } catch (err: any) {
     return c.json({
       error: 1,
       message: err.message,
@@ -35,9 +35,5 @@ app.get('/', async (c) => {
   }
 })
 
-serve(app.fetch, {
-  port: 3100,
-  onListen: () => {
-    console.log('Server is running at http://localhost:3100')
-  }
-})
+// Hapus fungsi serve() yang lama dan gunakan Deno.serve bawaan
+Deno.serve(app.fetch)
